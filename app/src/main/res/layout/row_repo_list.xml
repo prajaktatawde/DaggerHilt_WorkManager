@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="trendRepoData"
+            type="com.example.codingassignmentmo.model.ReposData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_large">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/item_profile_img"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:loadImage='@{trendRepoData.owner.avatar_url}'
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent" />
+
+        <TextView
+            android:id="@+id/item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingEnd="@dimen/margin"
+            android:paddingRight="@dimen/margin"
+            android:text='@{trendRepoData.full_name ?? "No Title Available"}'
+            android:textColor="@color/item_color_title"
+            android:textSize="@dimen/font_medium_large"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/item_profile_img"
+            app:layout_constraintTop_toTopOf="@id/item_profile_img"
+            tools:text="abc" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
